@@ -1,3 +1,9 @@
+using MinhaPrimeiraApi.Contracts.Infrastructure;
+using MinhaPrimeiraApi.Contracts.Repository;
+using MinhaPrimeiraApi.Contracts.Service;
+using MinhaPrimeiraApi.Infrastructure;
+using MinhaPrimeiraApi.Repository;
+using MinhaPrimeiraApi.Services;
 
 namespace MinhaPrimeiraApi
 {
@@ -7,12 +13,20 @@ namespace MinhaPrimeiraApi
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
 
+
+            // Add services to the container.
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
+
+            //DEPENDENCIA
+            builder.Services.AddSingleton<IConnection, Connection>();
+            builder.Services.AddScoped<IMecanicoService, MecanicoService>();
+            builder.Services.AddTransient<IMecanicoRepository, MecanicoRepository>();
+
             builder.Services.AddSwaggerGen();
+
 
             var app = builder.Build();
 

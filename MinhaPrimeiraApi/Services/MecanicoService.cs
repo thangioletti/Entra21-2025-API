@@ -1,4 +1,5 @@
-﻿using MinhaPrimeiraApi.Contracts.Service;
+﻿using MinhaPrimeiraApi.Contracts.Repository;
+using MinhaPrimeiraApi.Contracts.Service;
 using MinhaPrimeiraApi.DTO;
 using MinhaPrimeiraApi.Entity;
 using MinhaPrimeiraApi.Repository;
@@ -9,9 +10,16 @@ namespace MinhaPrimeiraApi.Services
 {
     public class MecanicoService : IMecanicoService
     {
+
+        private IMecanicoRepository _repository;
+
+        public MecanicoService(IMecanicoRepository repository)
+        {
+            _repository = repository;
+        }
+
         public async Task<MessageResponse> Delete(int id)
         {
-            MecanicoRepository _repository = new MecanicoRepository();
             await _repository.Delete(id);
             return new MessageResponse
             {
@@ -21,7 +29,6 @@ namespace MinhaPrimeiraApi.Services
 
         public async Task<MecanicoGetAllResponse> GetAll()
         {
-            MecanicoRepository _repository = new MecanicoRepository();
             return new MecanicoGetAllResponse
             {
                 Data = await _repository.GetAll()
@@ -30,13 +37,11 @@ namespace MinhaPrimeiraApi.Services
 
         public async Task<MecanicoEntity> GetById(int id)
         {
-            MecanicoRepository _repository = new MecanicoRepository();
             return await _repository.GetById(id);
         }
 
         public async Task<MessageResponse> Post(MecanicoInsertDTO mecanico)
         {
-            MecanicoRepository _repository = new MecanicoRepository();
             await _repository.Insert(mecanico);
             return new MessageResponse
             {
@@ -46,7 +51,6 @@ namespace MinhaPrimeiraApi.Services
 
         public async Task<MessageResponse> Update(MecanicoEntity mecanico)
         {
-            MecanicoRepository _repository = new MecanicoRepository();
             await _repository.Update(mecanico);
             return new MessageResponse
             {

@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using MinhaPrimeiraApi.Contracts.Infrastructure;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MinhaPrimeiraApi.Infrastructure
 {
-    public class Connection
+    public class Connection : IConnection
     {
         protected string connectionString = "Server=localhost;Database=oficina;User=root;Password=root;";
 

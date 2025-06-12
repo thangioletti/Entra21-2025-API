@@ -15,9 +15,9 @@ namespace MinhaPrimeiraApi.Controllers
     {
         private IMecanicoService _service;
 
-        public MecanicoController()
+        public MecanicoController(IMecanicoService mecanicoService)
         {
-            _service = new MecanicoService();
+            _service = mecanicoService;
         }
 
       
