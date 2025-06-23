@@ -59,3 +59,11 @@ C:\Users\tiago.angioletti\source\repos\MinhaPrimeiraApi\MinhaPrimeiraApi\bin\Deb
 C:\Users\tiago.angioletti\source\repos\MinhaPrimeiraApi\MinhaPrimeiraApi\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Diagnostics.EventLog.dll
 C:\Users\tiago.angioletti\source\repos\MinhaPrimeiraApi\MinhaPrimeiraApi\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Text.Encoding.CodePages.dll
 C:\Users\tiago.angioletti\source\repos\MinhaPrimeiraApi\MinhaPrimeiraApi\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+C:\Users\tiago.angioletti\source\repos\MinhaPrimeiraApi\MinhaPrimeiraApi\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\tiago.angioletti\source\repos\MinhaPrimeiraApi\MinhaPrimeiraApi\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\tiago.angioletti\source\repos\MinhaPrimeiraApi\MinhaPrimeiraApi\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\tiago.angioletti\source\repos\MinhaPrimeiraApi\MinhaPrimeiraApi\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\tiago.angioletti\source\repos\MinhaPrimeiraApi\MinhaPrimeiraApi\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\tiago.angioletti\source\repos\MinhaPrimeiraApi\MinhaPrimeiraApi\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\tiago.angioletti\source\repos\MinhaPrimeiraApi\MinhaPrimeiraApi\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\tiago.angioletti\source\repos\MinhaPrimeiraApi\MinhaPrimeiraApi\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll

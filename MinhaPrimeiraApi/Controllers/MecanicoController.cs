@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MinhaPrimeiraApi.Contracts.Service;
 using MinhaPrimeiraApi.DTO;
 using MinhaPrimeiraApi.Entity;
@@ -22,6 +23,7 @@ namespace MinhaPrimeiraApi.Controllers
 
       
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<MecanicoGetAllResponse>> Get()
         {            
             return Ok(await _service.GetAll());
