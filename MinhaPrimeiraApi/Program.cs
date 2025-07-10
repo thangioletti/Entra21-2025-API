@@ -19,8 +19,21 @@ namespace MinhaPrimeiraApi
 
 
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll", builder =>
+                {
+                    builder
+                        .AllowAnyOrigin()    // Or use .WithOrigins("https://example.com")
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+                });
+            });
+
             // Add services to the container.
             builder.Services.AddControllers();
+
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
 
@@ -95,6 +108,7 @@ namespace MinhaPrimeiraApi
             app.UseHttpsRedirection();
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseCors("AllowAll");
 
 
             app.MapControllers();

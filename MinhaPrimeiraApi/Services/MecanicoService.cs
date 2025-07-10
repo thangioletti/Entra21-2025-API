@@ -49,6 +49,8 @@ namespace MinhaPrimeiraApi.Services
             };
         }
 
+        
+
         public async Task<MessageResponse> Update(MecanicoEntity mecanico)
         {
             await _repository.Update(mecanico);
@@ -56,6 +58,19 @@ namespace MinhaPrimeiraApi.Services
             {
                 Message = "Mecanico alterado com sucesso!"
             };
+        }
+
+
+        public async Task<MessageResponse> PostOs(OSInsertDTO os)
+        {
+            var osId = await _repository.createOs(os);
+
+            await _repository.createOsPeca(os.Pecas, osId);
+            return new MessageResponse
+            {
+                Message = "Os criada com sucesso!"
+            };
+
         }
     }
 }

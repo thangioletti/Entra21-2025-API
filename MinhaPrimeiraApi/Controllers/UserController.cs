@@ -11,7 +11,7 @@ namespace MinhaPrimeiraApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class UserController: ControllerBase
+    public class UserController : ControllerBase
     {
         private IUserService _service;
 
@@ -53,6 +53,13 @@ namespace MinhaPrimeiraApi.Controllers
         public async Task<ActionResult<MessageResponse>> Update(UserEntity user)
         {
             return Ok(await _service.Update(user));
+        }
+
+        [HttpGet("HandShake")]
+        [Authorize]
+        public async Task<ActionResult> HandShake()
+        {
+            return Ok(new { });
         }
 
         [HttpPost]

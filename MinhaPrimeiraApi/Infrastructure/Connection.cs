@@ -25,5 +25,14 @@ namespace MinhaPrimeiraApi.Infrastructure
                 return await con.ExecuteAsync(sql, obj);
             }
         }
+
+        public async Task<object> ExecuteScalarAsync(string sql, object obj)
+        {
+
+            using (MySqlConnection con = GetConnection())
+            {
+                return await con.ExecuteScalarAsync(sql, obj);
+            }
+        }
     }
 }

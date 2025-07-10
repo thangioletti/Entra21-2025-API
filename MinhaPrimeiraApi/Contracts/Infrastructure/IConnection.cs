@@ -7,5 +7,6 @@ namespace MinhaPrimeiraApi.Contracts.Infrastructure
         MySqlConnection GetConnection();
 
         Task<int> Execute(string sql, object obj);
+        Task<object> ExecuteScalarAsync(string sql, object obj);
     }
 }

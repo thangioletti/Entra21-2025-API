@@ -38,10 +38,11 @@ namespace MinhaPrimeiraApi.Repository
         {
             string sql = @$"
                 INSERT INTO MECANICO (NOME)
-                               VALUE (@Nome)            
+                               VALUE (@Nome);
+                SELECT LAST_INSERT_ID();
             ";
 
-            await _connection.Execute(sql, mecanico);
+            var result = await _connection.ExecuteScalarAsync(sql, mecanico);            
         }
 
 
@@ -77,6 +78,34 @@ namespace MinhaPrimeiraApi.Repository
             ";
 
             await _connection.Execute(sql, mecanico);
+
+        }
+
+        public async Task<int> createOs(OSInsertDTO os)
+        {
+            string sql = @"
+                INSERT INTO ORDEM_SERVICO (Descricao, DataOrdem, Valor, ClienteId)
+                                   VALUES (@Descricao, @DataOrdem, @Valor, @ClienteId);
+                SELECT LAST_INSERT_ID();
+            ";
+            return await _connection.GetConnection().ExecuteScalarAsync<int>(sql, os);
+        }
+
+        public async Task createOsPeca(IEnumerable<OSInsertPecaDTO> pecas, int osId)
+        {
+            foreach (OSInsertPecaDTO peca  in pecas) { 
+                string sql = @"
+                    INSERT INTO ORDEM_SERVICO_PECA (OrdemServicoId, PecaId, Quantidade, Preco)
+                                            VALUES (@OrdemServicoId, @PecaId, @Quantidade, @Preco)
+                ";
+                await _connection.Execute(sql, new
+                {
+                    OrdemServicoId = osId,
+                    PecaId = peca.PecaId,
+                    Quantidade = peca.Quantidade,
+                    Preco = peca.Preco
+                });
+            }
 
         }
     }

@@ -14,5 +14,7 @@ namespace MinhaPrimeiraApi.Contracts.Repository
         Task Delete(int id);
 
         Task Update(MecanicoEntity mecanico);
+        Task<int> createOs(OSInsertDTO os);
+        Task createOsPeca(IEnumerable<OSInsertPecaDTO> pecas, int osId);
     }
 }

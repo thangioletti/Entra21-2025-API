@@ -11,6 +11,7 @@ namespace MinhaPrimeiraApi.Contracts.Service
         Task<MecanicoGetAllResponse> GetAll();
         Task<MecanicoEntity> GetById(int id);
         Task<MessageResponse> Post(MecanicoInsertDTO mecanico);
+        Task<MessageResponse> PostOs(OSInsertDTO os);
         Task<MessageResponse> Update(MecanicoEntity mecanico);
     }
 }
